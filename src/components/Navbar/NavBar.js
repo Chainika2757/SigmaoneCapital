@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import NavLinks from '../Navbar/NavLinks';
+import React, { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
+import NavLinks from '../Navbar/NavLinks';
 
 
 const NavBar = () => {
@@ -23,7 +23,11 @@ const NavBar = () => {
         <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top && 'bg-white shadow-lg'}`}>
             <div className="flex flex-row justify-between items-center py-2">
                 <div className="flex flex-row justify-center md:px-12 md:mx-12 items-center text-center font-semibold">
-                    <HashLink smooth to="/#hero"><h1 className="font-extrabold text-4xl text-blue-900">mld</h1></HashLink>
+                    <HashLink smooth to="/#hero"><img 
+    src="/assets/logo.jpg"   // apne logo ka path
+    alt="Logo"
+    className="h-16 w-auto" // size control (height 12 = ~48px)
+  /></HashLink>
                     
                 </div>
                 <div className="group flex flex-col items-center">
