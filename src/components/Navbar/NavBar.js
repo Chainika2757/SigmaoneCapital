@@ -24,7 +24,7 @@ const NavBar = () => {
             <div className="flex flex-row justify-between items-center py-2">
                 <div className="flex flex-row justify-center md:px-12 md:mx-12 items-center text-center font-semibold">
                     <HashLink smooth to="/#hero"><img 
-    src="/assets/logo.jpg"   // apne logo ka path
+    src="/assets/logo_hero.png"  
     alt="Logo"
     className="h-16 w-auto" // size control (height 12 = ~48px)
   /></HashLink>
