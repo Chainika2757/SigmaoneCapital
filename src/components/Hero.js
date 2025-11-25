@@ -25,7 +25,7 @@ const Hero = () => {
 
         {/* Content center me */}
         <div className="flex flex-1 items-center ;justify-center text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">SMATER MOVES<br />STRONGER OUTCOMES</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">SMARTER MOVES<br />STRONGER OUTCOMES</h1>
         </div>
       </div>
     </section>
