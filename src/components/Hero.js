@@ -20,7 +20,7 @@ const Hero = () => {
 
       {/* Navbar + Hero Content */}
       <div className="relative z-10 flex flex-col h-full items-center">
-        {/* Navbar top pe fix */}
+        {/* Navbar top fix */}
         <NavBar />
 
         {/* Content center me */}

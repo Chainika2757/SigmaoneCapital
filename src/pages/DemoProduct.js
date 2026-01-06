@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import NavBar from '../components/Navbar/NavBar';
-import Footer from '../components/Footer';
-import {useDocTitle} from '../components/CustomHook';
 import axios from 'axios';
+import { useState } from 'react';
+import { useDocTitle } from '../components/CustomHook';
+import Footer from '../components/Footer';
+import NavBar from '../components/Navbar/NavBar';
 // import emailjs from 'emailjs-com';
 import Notiflix from 'notiflix';
 
 const DemoProduct = (props) => {
 
-    useDocTitle('MLD | Molad e Konsult - Demo our products')
+    useDocTitle('SigmaOne Capital - SMARTER MOVES STRONGER OUTCOMES');
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -256,7 +256,7 @@ const DemoProduct = (props) => {
                                 </div>
                                 <div className="flex flex-col">
                                     <h2 className="text-2xl">Office Address</h2>
-                                    <p className="text-gray-400">Ilo Awela, Ota, Ogun State</p>
+                                    <p className="text-gray-400">Indore, Madhya Pradesh-45201</p>
                                 </div>
                             </div>
                             
@@ -267,11 +267,11 @@ const DemoProduct = (props) => {
 
                                 <div className="flex flex-col">
                                     <h2 className="text-2xl">Call Us</h2>
-                                    <p className="text-gray-400">Tel: 08055384406</p>
+                                    <p className="text-gray-400">Call : +91 98755-90601</p>
                                 
                                     <div className='mt-5'>
                                         <h2 className="text-2xl">Send an E-mail</h2>
-                                        <p className="text-gray-400">info@mld.ng</p>
+                                        <p className="text-gray-400">support@sigmaonecapital.in</p>
                                     </div>
                             
                                 </div>

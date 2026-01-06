@@ -41,12 +41,12 @@ const NavBar = () => {
                             )}
                         </svg>
                     </button>
-                    <div className='hidden space-x-6 lg:inline-block p-5'>
+                    <div className='hidden space-x-1 lg:inline-block p-5'>
                         <NavLinks />
                     </div>
 
                     <div className={`fixed transition-transform duration-300 ease-in-out transit flex justify-center left-0 w-full h-auto rounded-md p-24 bg-white lg:hidden shadow-xl top-14 ${  isOpen ? "block" : "hidden" } `}>
-                        <div className='flex flex-col space-y-6'>
+                        <div className='flex flex-col space-y-1'>
                             <NavLinks />
                         </div>                                                
                     </div>
