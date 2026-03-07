@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const Intro = () => {
     return (
         <>
-        <div className="m-auto max-w-6xl p-2 md:p-12 h-auto" id='about' >
-            <div className="flex flex-col-reverse lg:flex-row py-8 justify-between lg:text-left" data-aos="fade-up">
+        <div className="m-auto max-w-6xl p-2 md:px-12 md:py-16 h-auto" id='about' >
+            <div className="flex flex-col-reverse lg:flex-row py-4 justify-between lg:text-left" data-aos="fade-up">
                 <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
                     <img alt="card img" className="rounded-t float-right" src={img} />
                 </div>

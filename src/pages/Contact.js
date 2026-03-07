@@ -30,49 +30,49 @@ const Contact = () => {
     const sendEmail = (e) => {
         e.preventDefault();
         document.getElementById('submitBtn').disabled = true;
-        document.getElementById('submitBtn').innerHTML = 'Loading...';
+        document.getElementById('submitBtn').innerHTML = 'Sending...';
+        
+        // Google Forms requires specific 'entry.XXXXX' names for each field.
         let fData = new FormData();
-        fData.append('first_name', firstName)
-        fData.append('last_name', lastName)
-        fData.append('email', email)
-        fData.append('phone_number', phone)
-        fData.append('message', message)
+        fData.append('entry.112098988', firstName); // First Name
+        fData.append('entry.1488357553', lastName); // Last Name
+        fData.append('entry.402257908', email); // Email Address
+        fData.append('entry.110681739', phone); // Phone Number
+        fData.append('entry.159558040', message); // Your Message or Inquiry
 
-        axios({
-            method: "post",
-            url: process.env.REACT_APP_CONTACT_API,
-            data: fData,
-            headers: {
-                'Content-Type':  'multipart/form-data'
-            }
+        // The exact Google Form submission URL (change /viewform to /formResponse)
+        const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeIWaV6bGOGB7iETQrhDtQQrCviX5Rz_K4l9d0T0jRLMghbZQ/formResponse";
+
+        // Google forms doesn't natively support CORS for programmatic React submissions. 
+        // Using fetch with mode: 'no-cors' allows the POST to succeed silently.
+        fetch(googleFormUrl, {
+            method: "POST",
+            mode: "no-cors",
+            body: fData
         })
-        .then(function (response) {
+        .then(() => {
+            // Because of 'no-cors', the response is opaque and we can't check response.ok
+            // However, if the promise resolves, the network request successfully left the browser.
             document.getElementById('submitBtn').disabled = false;
-            document.getElementById('submitBtn').innerHTML = 'send message';
-            clearInput()
-            //handle success
+            document.getElementById('submitBtn').innerHTML = 'Send Message';
+            clearInput();
+            
             Notiflix.Report.success(
-                'Success',
-                response.data.message,
+                'Message Sent',
+                'Your message has been sent successfully. We will get back to you shortly.',
                 'Okay',
             );
         })
-        .catch(function (error) {
+        .catch((error) => {
+            // This only triggers if there's an actual network failure (e.g., offline)
             document.getElementById('submitBtn').disabled = false;
-            document.getElementById('submitBtn').innerHTML = 'send message';
-            //handle error
-            const { response } = error;
-            if(response.status === 500) {
-                Notiflix.Report.failure(
-                    'An error occurred',
-                    response.data.message,
-                    'Okay',
-                );
-            }
-            if(response.data.errors !== null) {
-                setErrors(response.data.errors)
-            }
+            document.getElementById('submitBtn').innerHTML = 'Send Message';
             
+            Notiflix.Report.failure(
+                'Network Error',
+                'There was a problem sending your message. Please check your internet connection and try again.',
+                'Okay',
+            );
         });
     }
     return (
