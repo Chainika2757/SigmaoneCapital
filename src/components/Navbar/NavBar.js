@@ -23,12 +23,14 @@ const NavBar = () => {
         <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top && 'bg-white shadow-lg'}`}>
             <div className="flex flex-row justify-between items-center py-2">
                 <div className="flex flex-row justify-center md:px-12 md:mx-12 items-center text-center font-semibold">
-                    <HashLink smooth to="/#hero"><img 
-    src="/assets/logo_hero.png"  
-    alt="Logo"
-    className={`h-16 w-auto transition-all duration-300 ${!top ? 'filter invert brightness-0' : ''}`} // Inverts the white logo to black when background is white
-  /></HashLink>
-                    
+                    <HashLink smooth to="/#hero">
+                        <img 
+                            src="/assets/logo_hero.png"  
+                            alt="Logo"
+                            className="h-16 w-auto transition-all duration-300"
+                            style={!top ? { filter: 'brightness(0)' } : {}}
+                        />
+                    </HashLink>
                 </div>
                 <div className="group flex flex-col items-center">
                     <button className="p-2 rounded-lg lg:hidden text-blue-900" onClick={handleClick}>
