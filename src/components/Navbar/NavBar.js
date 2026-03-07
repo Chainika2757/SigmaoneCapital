@@ -26,7 +26,7 @@ const NavBar = () => {
                     <HashLink smooth to="/#hero"><img 
     src="/assets/logo_hero.png"  
     alt="Logo"
-    className="h-16 w-auto" // size control (height 12 = ~48px)
+    className={`h-16 w-auto transition-all duration-300 ${!top ? 'filter invert brightness-0' : ''}`} // Inverts the white logo to black when background is white
   /></HashLink>
                     
                 </div>
