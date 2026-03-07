@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { useDocTitle } from '../components/CustomHook';
 import Footer from '../components/Footer';
