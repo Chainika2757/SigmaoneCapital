@@ -12,7 +12,18 @@ const defaultStocks = [
 ];
 
 const StockTicker = () => {
-    const [stocks, setStocks] = useState([]);
+    // Initialize state with cached data if available, otherwise use default realistic dummy data.
+    const [stocks, setStocks] = useState(() => {
+        const cached = localStorage.getItem('sigmaone_ticker_cache');
+        if (cached) {
+            try {
+                return JSON.parse(cached);
+            } catch (e) {
+                return defaultStocks;
+            }
+        }
+        return defaultStocks;
+    });
 
     useEffect(() => {
         const fetchStocks = async () => {
@@ -45,11 +56,14 @@ const StockTicker = () => {
                         });
                         
                         // We append fixed indexes to ensure they are always present.
-                        setStocks([
+                        const finalStocks = [
                             { symbol: "NIFTY 50", price: "22,519.40", change: "+151.40", percent: "+0.68%", isUp: true }, 
                             { symbol: "SENSEX", price: "74,227.63", change: "+503.55", percent: "+0.68%", isUp: true },
                             ...fetchedStocks
-                        ]);
+                        ];
+                        
+                        setStocks(finalStocks);
+                        localStorage.setItem('sigmaone_ticker_cache', JSON.stringify(finalStocks));
                         return;
                     }
                 }
