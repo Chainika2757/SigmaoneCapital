@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import NavLinks from '../Navbar/NavLinks';
+import StockTicker from '../StockTicker';
 
 
 const NavBar = () => {
@@ -55,6 +56,7 @@ const NavBar = () => {
 
                 </div>
             </div>
+            <StockTicker />
         </nav>
     )
     
