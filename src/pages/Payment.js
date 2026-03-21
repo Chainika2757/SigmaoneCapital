@@ -18,7 +18,7 @@ const Payment = () => {
     return (
         <>
             <NavBar />
-            <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-20 pb-10 px-4">
+            <div className="flex justify-center items-center min-h-screen bg-gray-100 pt-36 pb-12 px-4">
                 {loading ? (
                     <div className="flex flex-col items-center justify-center animate-pulse">
                         <div className="newtons-cradle mb-8">
