@@ -17,9 +17,9 @@ const StockTicker = () => {
     useEffect(() => {
         const fetchStocks = async () => {
             try {
-                // We use Yahoo Finance via a generic public CORS proxy to retrieve real-time data free of charge.
+                // Use Yahoo Finance spark endpoint which doesn't require a crumb
                 const symbols = "RELIANCE.NS,TCS.NS,HDFCBANK.NS,INFY.NS,ITC.NS";
-                const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols}`;
+                const url = `https://query1.finance.yahoo.com/v7/finance/spark?symbols=${symbols}`;
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
                 
                 const response = await fetch(proxyUrl);
@@ -27,14 +27,22 @@ const StockTicker = () => {
                 
                 if (data.contents) {
                     const parsed = JSON.parse(data.contents);
-                    if (parsed && parsed.quoteResponse && parsed.quoteResponse.result) {
-                        const fetchedStocks = parsed.quoteResponse.result.map(quote => ({
-                            symbol: quote.symbol.replace('.NS', ''),
-                            price: quote.regularMarketPrice.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
-                            change: quote.regularMarketChange > 0 ? `+${quote.regularMarketChange.toFixed(2)}` : quote.regularMarketChange.toFixed(2),
-                            percent: quote.regularMarketChangePercent > 0 ? `+${quote.regularMarketChangePercent.toFixed(2)}%` : `${quote.regularMarketChangePercent.toFixed(2)}%`,
-                            isUp: quote.regularMarketChange >= 0
-                        }));
+                    if (parsed && parsed.spark && parsed.spark.result) {
+                        const fetchedStocks = parsed.spark.result.map(quote => {
+                            const meta = quote.response[0].meta;
+                            const currentPrice = meta.regularMarketPrice;
+                            const prevClose = meta.previousClose;
+                            const change = currentPrice - prevClose;
+                            const percent = (change / prevClose) * 100;
+                            
+                            return {
+                                symbol: quote.symbol.replace('.NS', ''),
+                                price: currentPrice.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+                                change: change > 0 ? `+${change.toFixed(2)}` : change.toFixed(2),
+                                percent: percent > 0 ? `+${percent.toFixed(2)}%` : `${percent.toFixed(2)}%`,
+                                isUp: change >= 0
+                            };
+                        });
                         
                         // We append fixed indexes to ensure they are always present.
                         setStocks([

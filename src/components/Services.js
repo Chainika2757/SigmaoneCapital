@@ -107,7 +107,7 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <div id="services" className="bg-gray-50 py-16 md:py-24">
+    <div id="services" className="bg-gray-50 py-16 md:py-24 relative z-0">
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Heading Section */}
