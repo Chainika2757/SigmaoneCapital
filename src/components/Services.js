@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import PaymentButton from "./PaymentButton";
 
 const planData = {
   SigmaStart: {
@@ -103,6 +104,7 @@ const planData = {
 
 const Services = () => {
   const [activePlan, setActivePlan] = useState("SigmaStart");
+  const navigate = useNavigate();
 
   return (
     <div id="services" className="bg-gray-50 py-16 md:py-24">
@@ -150,51 +152,67 @@ const Services = () => {
             {planData[activePlan].options.map((opt, idx) => (
               <div
                 key={idx}
-                className={`relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-                  opt.popular ? 'ring-2 ring-blue-900 transform scale-105' : ''
-                }`}
+                className={`card-3d ${opt.popular ? 'transform scale-105 z-10' : ''}`}
               >
-                {/* Popular Badge */}
-                {opt.popular && (
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <span className="bg-orange-500 text-white text-xs font-bold uppercase tracking-widest py-1 px-3 rounded-full shadow-lg">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+                <div className="content">
+                  
+                  {/* Back Face (Features & Payment) */}
+                  <div className="back">
+                    <div className="back-content text-center">
+                      <h3 className="text-xl font-bold mb-4">{opt.type} Features</h3>
+                      
+                      {/* Features List */}
+                      <ul className="flex-1 space-y-3 mb-6 text-sm text-left px-2 w-full">
+                        {opt.features.map((feature, fIdx) => (
+                          <li key={fIdx} className="flex items-start">
+                            <svg className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span className="font-medium text-gray-800">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
 
-                <div className="mb-6 border-b border-gray-100 pb-6 text-center">
-                  <span className="inline-block bg-blue-50 text-blue-900 font-semibold px-4 py-1 rounded-full text-sm mb-4">
-                    {opt.type}
-                  </span>
-                  <div className="flex justify-center items-baseline text-5xl font-extrabold text-blue-900">
-                    {opt.price}
+                      {/* Pay Now Button */}
+                      <PaymentButton onClick={() => navigate('/payment')} />
+                    </div>
                   </div>
+
+                  {/* Front Face (Pricing details) */}
+                  <div className="front">
+                    <div className="img-bg">
+                      <div className="circle-blob"></div>
+                      <div className="circle-blob" id="blob-right"></div>
+                      <div class="circle-blob" id="blob-bottom"></div>
+                    </div>
+
+                    <div className="front-content relative z-10">
+                      {/* Popular Badge */}
+                      {opt.popular ? (
+                        <small className="badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-md inline-block w-fit">
+                          Most Popular
+                        </small>
+                      ) : (
+                        <div></div>
+                      )}
+
+                      <div className="description mt-auto flex flex-col justify-between h-32">
+                        <div className="title w-full flex justify-between tracking-tight items-center">
+                          <p className="font-black text-xl text-blue-900 uppercase">
+                            {opt.type}
+                          </p>
+                          <div className="text-2xl font-extrabold text-blue-900 border-b-2 border-blue-900">
+                            {opt.price}
+                          </div>
+                        </div>
+                        <p className="card-footer text-gray-500 mt-2 text-xs font-bold uppercase tracking-wider text-left">
+                          {planData[activePlan].title}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-
-                {/* Features List */}
-                <ul className="flex-1 space-y-4 mb-8">
-                  {opt.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start">
-                      <svg className="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-600 font-medium">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Link
-                  to="/contact"
-                  className={`mt-auto w-full py-3 px-6 rounded-xl font-bold text-center transition-colors duration-300 ${
-                    opt.popular
-                      ? 'bg-blue-900 text-white hover:bg-blue-800 shadow-lg shadow-blue-900/30'
-                      : 'bg-blue-50 text-blue-900 hover:bg-blue-100'
-                  }`}
-                >
-                  Get Started
-                </Link>
               </div>
             ))}
           </div>
