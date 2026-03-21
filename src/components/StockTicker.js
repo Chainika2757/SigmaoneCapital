@@ -62,10 +62,10 @@ const StockTicker = () => {
     const displayStocks = [...stocks, ...stocks, ...stocks, ...stocks];
 
     return (
-        <div className="w-full bg-slate-900 border-t border-slate-700 overflow-hidden py-1.5 flex items-center shadow-inner relative z-20">
+        <div className="w-full bg-slate-900 border-t border-slate-700 overflow-hidden py-2 flex items-center shadow-inner relative z-20">
             <div className="flex whitespace-nowrap animate-marquee">
                 {displayStocks.map((stock, idx) => (
-                    <div key={idx} className="flex items-center text-xs font-semibold mx-6 font-mono group cursor-default">
+                    <div key={idx} className="flex items-center text-sm font-bold mx-6 font-mono group cursor-default tracking-wide">
                         <span className="text-white mr-2 group-hover:text-blue-300 transition-colors">{stock.symbol}</span>
                         <span className="text-gray-300 mr-2">{stock.price}</span>
                         <span className={stock.isUp ? "text-green-400" : "text-red-400"}>
