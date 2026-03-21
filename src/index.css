@@ -56,6 +56,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 .card-3d .back::before {
@@ -86,6 +87,14 @@ body {
 
 .card-3d:hover .content {
   transform: rotateY(180deg);
+}
+
+.card-3d:hover .front {
+  pointer-events: none;
+}
+
+.card-3d:hover .back {
+  pointer-events: auto;
 }
 
 @keyframes rotation_481 {
