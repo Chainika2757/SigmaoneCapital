@@ -15,6 +15,7 @@ import Payment from './pages/Payment';
 
 import { useDocTitle } from './components/CustomHook';
 import ScrollToTop from './components/ScrollToTop';
+import TermsPopup from './components/TermsPopup';
 
 function App() {
   useEffect(() => {
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <>
+      <TermsPopup />
       <Router>
         <ScrollToTop>
           <Routes>

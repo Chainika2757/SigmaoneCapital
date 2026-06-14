@@ -1,41 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import PaymentButton from "./PaymentButton";
 
 const planData = {
-  SigmaStart: {
-    title: "Beginner Plan",
-    options: [
-      {
-        type: "Monthly",
-        price: "₹999",
-        features: [
-          "2 stock ideas/month",
-          "Basic market insights",
-          "Email support",
-        ],
-      },
-      {
-        type: "Quarterly",
-        price: "₹2,499",
-        popular: true,
-        features: [
-          "6 stock ideas",
-          "Beginner’s guide",
-          "WhatsApp Q&A (weekends only)",
-        ],
-      },
-      {
-        type: "Annual",
-        price: "₹8,999",
-        features: [
-          "30+ stock ideas",
-          "Learning modules",
-          "Community access",
-        ],
-      },
-    ],
-  },
   SigmaEdge: {
     title: "Intermediate Plan",
     options: [
@@ -103,8 +70,48 @@ const planData = {
 };
 
 const Services = () => {
-  const [activePlan, setActivePlan] = useState("SigmaStart");
+  const [activePlan, setActivePlan] = useState("SigmaEdge");
   const navigate = useNavigate();
+  const [flippedCards, setFlippedCards] = useState({});
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    // Reset flipped state when activePlan changes
+    setFlippedCards({});
+
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = entry.target.getAttribute("data-index");
+          if (entry.isIntersecting) {
+            setFlippedCards((prev) => ({ ...prev, [index]: true }));
+          } else {
+            setFlippedCards((prev) => ({ ...prev, [index]: false }));
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.6, // Flip when 60% of card is in viewport
+      }
+    );
+
+    // Sync ref array sizes
+    cardRefs.current = cardRefs.current.slice(0, planData[activePlan].options.length);
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      cardRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [activePlan]);
 
   return (
     <div id="services" className="bg-gray-50 py-16 md:py-24 relative z-0">
@@ -123,9 +130,9 @@ const Services = () => {
           </p>
         </div>
 
-        {/* ---------- 3 TAB BUTTONS  ---------- */}
+        {/* ---------- 2 TAB BUTTONS  ---------- */}
         <div className="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="100">
-          {["SigmaStart", "SigmaEdge", "SigmaElite"].map((plan) => (
+          {["SigmaEdge", "SigmaElite"].map((plan) => (
             <button
               key={plan}
               onClick={() => setActivePlan(plan)}
@@ -152,7 +159,11 @@ const Services = () => {
             {planData[activePlan].options.map((opt, idx) => (
               <div
                 key={idx}
-                className={`card-3d ${opt.popular ? 'transform scale-105 z-10' : ''}`}
+                ref={(el) => (cardRefs.current[idx] = el)}
+                data-index={idx}
+                className={`card-3d ${opt.popular ? 'transform scale-105 z-10' : ''} ${
+                  flippedCards[idx] ? 'flipped-mobile' : ''
+                }`}
               >
                 <div className="content">
                   
@@ -183,7 +194,7 @@ const Services = () => {
                     <div className="img-bg">
                       <div className="circle-blob"></div>
                       <div className="circle-blob" id="blob-right"></div>
-                      <div class="circle-blob" id="blob-bottom"></div>
+                      <div className="circle-blob" id="blob-bottom"></div>
                     </div>
 
                     <div className="front-content relative z-10">
