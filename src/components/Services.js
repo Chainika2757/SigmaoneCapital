@@ -1,68 +1,76 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PaymentButton from "./PaymentButton";
 
 const planData = {
-  SigmaEdge: {
-    title: "Intermediate Plan",
+  "Sigma Start": {
+    title: "Starter wealth Advisory Plan",
     options: [
       {
         type: "Monthly",
-        price: "₹1,999",
+        price: "₹7,000",
         features: [
-          "4 high-conviction ideas/month",
-          "Weekly updates",
-          "Sector picks",
+          "3-4 equity research ideas/month",
+          "Weekly market insights & updates",
+          "Email support for query resolution",
+          "Standard portfolio-tracking access"
         ],
       },
       {
         type: "Quarterly",
-        price: "₹5,499",
+        price: "₹16,800",
         popular: true,
         features: [
-          "Portfolio-rebalancing support",
-          "Email + WhatsApp support",
+          "All Monthly benefits included",
+          "WhatsApp + Email support",
+          "Quarterly portfolio overview",
+          "Dedicated query response (24-48 hrs)"
         ],
       },
       {
         type: "Annual",
-        price: "₹19,999",
+        price: "₹63,000",
         features: [
-          "70+ curated ideas",
-          "Early access to new themes",
-          "1-on-1 strategy call",
+          "All Quarterly benefits included",
+          "1-on-1 wealth consultation call",
+          "Premium stock & sector insights",
+          "Priority support & direct access"
         ],
       },
     ],
   },
-  SigmaElite: {
-    title: "HNIs / Ultra-premium",
+  "Sigma Edge": {
+    title: "Advanced Wealth advisory Plan",
     options: [
       {
         type: "Monthly",
-        price: "₹7,999",
+        price: "₹10,000",
         features: [
-          "Customized advisory",
-          "Priority support",
-          "Early access",
+          "4-5 high-conviction ideas/month",
+          "Weekly updates & macro insights",
+          "Priority WhatsApp + Email support",
+          "Basic asset allocation suggestions"
         ],
       },
       {
         type: "Quarterly",
-        price: "₹21,999",
+        price: "₹25,000",
         popular: true,
         features: [
-          "Dedicated analyst support",
-          "Deep portfolio reviews",
+          "All Monthly benefits included",
+          "Portfolio-rebalancing support",
+          "Quarterly strategy discussion call",
+          "Detailed sector research reports"
         ],
       },
       {
         type: "Annual",
-        price: "₹34,999",
+        price: "₹96,000",
         features: [
-          "End-to-end financial strategy",
-          "Goal-based investing",
-          "Webinars",
+          "All Quarterly benefits included",
+          "Dedicated investment analyst support",
+          "End-to-end custom financial strategy",
+          "Priority 1-on-1 strategy calls"
         ],
       },
     ],
@@ -70,48 +78,8 @@ const planData = {
 };
 
 const Services = () => {
-  const [activePlan, setActivePlan] = useState("SigmaEdge");
+  const [activePlan, setActivePlan] = useState("Sigma Start");
   const navigate = useNavigate();
-  const [flippedCards, setFlippedCards] = useState({});
-  const cardRefs = useRef([]);
-
-  useEffect(() => {
-    // Reset flipped state when activePlan changes
-    setFlippedCards({});
-
-    const isMobile = window.innerWidth < 768;
-    if (!isMobile) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = entry.target.getAttribute("data-index");
-          if (entry.isIntersecting) {
-            setFlippedCards((prev) => ({ ...prev, [index]: true }));
-          } else {
-            setFlippedCards((prev) => ({ ...prev, [index]: false }));
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0.6, // Flip when 60% of card is in viewport
-      }
-    );
-
-    // Sync ref array sizes
-    cardRefs.current = cardRefs.current.slice(0, planData[activePlan].options.length);
-
-    cardRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      cardRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, [activePlan]);
 
   return (
     <div id="services" className="bg-gray-50 py-16 md:py-24 relative z-0">
@@ -130,9 +98,9 @@ const Services = () => {
           </p>
         </div>
 
-        {/* ---------- 2 TAB BUTTONS  ---------- */}
+        {/* ---------- Tab Buttons ---------- */}
         <div className="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="100">
-          {["SigmaEdge", "SigmaElite"].map((plan) => (
+          {Object.keys(planData).map((plan) => (
             <button
               key={plan}
               onClick={() => setActivePlan(plan)}
@@ -149,80 +117,60 @@ const Services = () => {
 
         {/* ---------- Dynamic Plan Content ---------- */}
         <div className="animate-fade-in-up">
-          <div className="text-center mb-10">
-            <h3 className="text-3xl font-bold text-gray-800">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-extrabold text-gray-800 tracking-tight">
               {planData[activePlan].title}
             </h3>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
             {planData[activePlan].options.map((opt, idx) => (
               <div
                 key={idx}
-                ref={(el) => (cardRefs.current[idx] = el)}
-                data-index={idx}
-                className={`card-3d ${opt.popular ? 'transform scale-105 z-10' : ''} ${
-                  flippedCards[idx] ? 'flipped-mobile' : ''
+                className={`bg-white border rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                  opt.popular 
+                    ? "border-blue-950 shadow-xl ring-2 ring-blue-900 ring-offset-2 scale-105 z-10 md:-translate-y-2" 
+                    : "border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1"
                 }`}
               >
-                <div className="content">
-                  
-                  {/* Back Face (Features & Payment) */}
-                  <div className="back">
-                    <div className="back-content text-center">
-                      <h3 className="text-xl font-bold mb-4">{opt.type} Features</h3>
-                      
-                      {/* Features List */}
-                      <ul className="flex-1 space-y-3 mb-6 text-sm text-left px-2 w-full">
-                        {opt.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="flex items-start">
-                            <svg className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span className="font-medium text-gray-800">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
+                {/* Popular Badge */}
+                {opt.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-orange-500 text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-md">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
 
-                      {/* Pay Now Button */}
-                      <PaymentButton onClick={() => navigate('/payment')} />
+                {/* Card Top Section: Title & Price */}
+                <div>
+                  <div className="text-center mb-6">
+                    <p className="font-extrabold text-lg text-gray-500 uppercase tracking-widest mb-2">
+                      {opt.type}
+                    </p>
+                    <div className="text-4xl font-black text-blue-900">
+                      {opt.price}
                     </div>
+                    <div className="w-12 border-b-2 border-gray-100 mx-auto mt-4"></div>
                   </div>
 
-                  {/* Front Face (Pricing details) */}
-                  <div className="front">
-                    <div className="img-bg">
-                      <div className="circle-blob"></div>
-                      <div className="circle-blob" id="blob-right"></div>
-                      <div className="circle-blob" id="blob-bottom"></div>
-                    </div>
+                  {/* Features List */}
+                  <ul className="space-y-4 mb-8 text-sm text-left">
+                    {opt.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start">
+                        <svg className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="font-medium text-gray-700 leading-snug">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                    <div className="front-content relative z-10">
-                      {/* Popular Badge */}
-                      {opt.popular ? (
-                        <small className="badge bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest shadow-md inline-block w-fit">
-                          Most Popular
-                        </small>
-                      ) : (
-                        <div></div>
-                      )}
-
-                      <div className="description mt-auto flex flex-col justify-between h-32">
-                        <div className="title w-full flex justify-between tracking-tight items-center">
-                          <p className="font-black text-xl text-blue-900 uppercase">
-                            {opt.type}
-                          </p>
-                          <div className="text-2xl font-extrabold text-blue-900 border-b-2 border-blue-900">
-                            {opt.price}
-                          </div>
-                        </div>
-                        <p className="card-footer text-gray-500 mt-2 text-xs font-bold uppercase tracking-wider text-left">
-                          {planData[activePlan].title}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
+                {/* Pay Now Button */}
+                <div className="mt-auto pt-4">
+                  <PaymentButton onClick={() => navigate('/payment')} />
                 </div>
               </div>
             ))}
@@ -235,3 +183,4 @@ const Services = () => {
 };
 
 export default Services;
+

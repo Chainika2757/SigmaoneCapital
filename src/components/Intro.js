@@ -121,7 +121,7 @@ const Intro = () => {
                         </div>
                         <div>
                             <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Company Name</h4>
-                            <p className="text-md font-bold text-gray-800">SigmaOne Capital Private Limited</p>
+                            <p className="text-md font-bold text-gray-800">Sigmaone Capital</p>
                             <p className="text-xs text-green-600 font-semibold mt-1 flex items-center gap-1">
                                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Active / Registered
                             </p>
@@ -153,7 +153,7 @@ const Intro = () => {
                         <div>
                             <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Registered Address</h4>
                             <p className="text-xs font-bold text-gray-700 leading-relaxed">
-                                Plot No. 1840, Scheme No. 114, Part I, Niranjanpur Main Road, Near Khalsa Chowk, Indore, MP - 452010
+                                903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010
                             </p>
                         </div>
                     </div>

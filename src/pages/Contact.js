@@ -178,7 +178,7 @@ const Contact = () => {
                                     </div>
                                     <div className="flex flex-col">
                                         <h2 className="text-2xl">Office Address</h2>
-                                        <p className="text-gray-400">Indore, Madhya Pradesh-452010</p>
+                                        <p className="text-gray-400">903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010</p>
                                     </div>
                                 </div>
                     

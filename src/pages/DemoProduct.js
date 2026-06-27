@@ -131,23 +131,23 @@ const DemoProduct = (props) => {
                             </div>
                             <div className="flex items-center my-4">
                                 <input 
-                                    id="checkbox-sigma-edge" 
-                                    aria-describedby="checkbox-sigma-edge" 
+                                    id="checkbox-sigma-start" 
+                                    aria-describedby="checkbox-sigma-start" 
                                     type="checkbox" 
                                     className="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded cursor-pointer" 
-                                    value="sigma_edge" onChange={handleChange}
+                                    value="sigma_start" onChange={handleChange}
                                  />
-                                <label htmlFor="checkbox-sigma-edge" className="ml-3 text-lg font-medium text-gray-900 cursor-pointer">Sigma Edge (Intermediate Wealth Plan)</label>
+                                <label htmlFor="checkbox-sigma-start" className="ml-3 text-lg font-medium text-gray-900 cursor-pointer">Sigma Start (Starter Wealth Advisory Plan)</label>
                             </div>
                             <div className="flex items-center my-4">
                                 <input 
-                                    id="checkbox-sigma-elite" 
-                                    aria-describedby="checkbox-sigma-elite" 
+                                    id="checkbox-sigma-edge" 
+                                    aria-describedby="checkbox-sigma-edge" 
                                     type="checkbox" 
                                     className="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded cursor-pointer"
-                                    value="sigma_elite" onChange={handleChange}
+                                    value="sigma_edge" onChange={handleChange}
                                      />
-                                <label htmlFor="checkbox-sigma-elite" className="ml-3 text-lg font-medium text-gray-900 cursor-pointer">Sigma Elite (HNI / Ultra-Premium Advisory)</label>
+                                <label htmlFor="checkbox-sigma-edge" className="ml-3 text-lg font-medium text-gray-900 cursor-pointer">Sigma Edge (Advanced Wealth Advisory Plan)</label>
                             </div>
                             <div className="flex items-center my-4">
                                 <input 
@@ -253,7 +253,7 @@ const DemoProduct = (props) => {
                                 </div>
                                 <div className="flex flex-col">
                                     <h2 className="text-2xl">Office Address</h2>
-                                    <p className="text-gray-400">Indore, Madhya Pradesh-452010</p>
+                                    <p className="text-gray-400">903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010</p>
                                 </div>
                             </div>
                             

@@ -64,7 +64,7 @@ const NavBar = () => {
 
                     <div className={`absolute transition-all duration-300 ease-in-out flex justify-center left-0 w-full h-auto rounded-b-xl py-6 px-4 bg-white lg:hidden shadow-xl top-full border-t border-gray-100 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"}`}>
                         <div className='flex flex-col space-y-4 text-center'>
-                            <NavLinks linkClass="text-gray-600 hover:text-blue-900 py-1" />
+                            <NavLinks linkClass="text-gray-600 hover:text-blue-900 py-1" onClick={() => setisOpen(false)} />
                         </div>                                                
                     </div>
 
