@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import NavLinks from '../Navbar/NavLinks';
-import StockTicker from '../StockTicker';
 
 const NavBar = () => {
     const [top, setTop] = useState(!window.scrollY);
@@ -70,7 +69,6 @@ const NavBar = () => {
 
                 </div>
             </div>
-            <StockTicker />
         </nav>
     )
 }

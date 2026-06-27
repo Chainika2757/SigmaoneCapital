@@ -33,14 +33,14 @@ const Contact = () => {
         
         // Google Forms requires specific 'entry.XXXXX' names for each field.
         let fData = new FormData();
-        fData.append('entry.112098988', firstName); // First Name
-        fData.append('entry.1488357553', lastName); // Last Name
-        fData.append('entry.402257908', email); // Email Address
-        fData.append('entry.110681739', phone); // Phone Number
-        fData.append('entry.159558040', message); // Your Message or Inquiry
+        fData.append('entry.1315504678', firstName); // First Name
+        fData.append('entry.494654636', lastName); // Last Name
+        fData.append('entry.968039092', email); // Email Address
+        fData.append('entry.1326647933', phone); // Phone Number
+        fData.append('entry.716396716', message); // Your Message or Inquiry
 
         // The exact Google Form submission URL (change /viewform to /formResponse)
-        const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeIWaV6bGOGB7iETQrhDtQQrCviX5Rz_K4l9d0T0jRLMghbZQ/formResponse";
+        const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeObHekrc4fiOM0i0QQnqLbPojzcFMlDezFzzkkUQb3epNYoA/formResponse";
 
         // Google forms doesn't natively support CORS for programmatic React submissions. 
         // Using fetch with mode: 'no-cors' allows the POST to succeed silently.
