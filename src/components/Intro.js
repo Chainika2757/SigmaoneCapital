@@ -224,7 +224,7 @@ const Intro = () => {
                         {/* Principle 1 */}
                         <div ref={cardRefs[0]} style={cardTransitionStyle} className="absolute inset-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-6 shadow-2xl text-white flex flex-col justify-center">
                             <h3 className="text-lg md:text-2xl font-extrabold text-white mb-2 flex items-center gap-3">
-                                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"></span>
                                 We are a fiduciary to our clients.
                             </h3>
                             <p className="text-sm md:text-base text-blue-200 font-extrabold mb-2">Our clients' interests come first.</p>
@@ -236,7 +236,7 @@ const Intro = () => {
                         {/* Principle 2 */}
                         <div ref={cardRefs[1]} style={cardTransitionStyle} className="absolute inset-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-6 shadow-2xl text-white flex flex-col justify-center">
                             <h3 className="text-lg md:text-2xl font-extrabold text-white mb-2 flex items-center gap-3">
-                                <span className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"></span>
                                 We are SigmaOne.
                             </h3>
                             <p className="text-gray-200 leading-relaxed mb-2 text-xs md:text-sm">
@@ -261,7 +261,7 @@ const Intro = () => {
                         {/* Principle 3 */}
                         <div ref={cardRefs[2]} style={cardTransitionStyle} className="absolute inset-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-6 shadow-2xl text-white flex flex-col justify-center">
                             <h3 className="text-lg md:text-2xl font-extrabold text-white mb-2 flex items-center gap-3">
-                                <span className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"></span>
                                 We are passionate about performance.
                             </h3>
                             <p className="text-gray-200 leading-relaxed mb-2 text-xs md:text-sm">
@@ -286,7 +286,7 @@ const Intro = () => {
                         {/* Principle 4 */}
                         <div ref={cardRefs[3]} style={cardTransitionStyle} className="absolute inset-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-6 shadow-2xl text-white flex flex-col justify-center">
                             <h3 className="text-lg md:text-2xl font-extrabold text-white mb-2 flex items-center gap-3">
-                                <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.8)]"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"></span>
                                 We take emotional ownership.
                             </h3>
                             <p className="text-gray-200 leading-relaxed mb-2 text-xs md:text-sm">
@@ -311,7 +311,7 @@ const Intro = () => {
                         {/* Principle 5 */}
                         <div ref={cardRefs[4]} style={cardTransitionStyle} className="absolute inset-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-6 shadow-2xl text-white flex flex-col justify-center">
                             <h3 className="text-lg md:text-2xl font-extrabold text-white mb-2 flex items-center gap-3">
-                                <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)]"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"></span>
                                 We are committed to a better future.
                             </h3>
                             <p className="text-gray-200 leading-relaxed mb-2 text-xs md:text-sm">
