@@ -189,7 +189,7 @@ const Contact = () => {
 
                         <div className="flex flex-col">
                         <h2 className="text-2xl">Call Us</h2>
-                        <p className="text-gray-400">Call: +91 98755-90601</p>
+                        <p className="text-gray-400">Call: +91 98755-90601, +91 831 908 1061</p>
                         
                             <div className='mt-5'>
                                 <h2 className="text-2xl">Send an E-mail</h2>

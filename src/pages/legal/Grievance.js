@@ -11,7 +11,7 @@ const Grievance = () => {
             role: "Customer Care",
             name: "Chakrapaani Mishra",
             address: "903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010",
-            contact: "+91 98755-90601",
+            contact: "+91 98755-90601, +91 831 908 1061",
             email: "support@sigmaonecapital.in",
             hours: "Mon-Sat 09:00 AM to 05:00 PM"
         },
@@ -27,7 +27,7 @@ const Grievance = () => {
             role: "Compliance Officer",
             name: "Chakrapaani Mishra",
             address: "903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010",
-            contact: "+91 98755-90601",
+            contact: "+91 98755-90601, +91 831 908 1061",
             email: "support@sigmaonecapital.in",
             hours: "Mon-Sat 09:00 AM to 05:00 PM"
         },
@@ -35,7 +35,7 @@ const Grievance = () => {
             role: "CEO",
             name: "Chakrapaani Mishra",
             address: "903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010",
-            contact: "+91 98755-90601",
+            contact: "+91 98755-90601, +91 831 908 1061",
             email: "support@sigmaonecapital.in",
             hours: "Mon-Sat 09:00 AM to 05:00 PM"
         },
@@ -43,7 +43,7 @@ const Grievance = () => {
             role: "Principal Officer",
             name: "Chakrapaani Mishra",
             address: "903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010",
-            contact: "+91 98755-90601",
+            contact: "+91 98755-90601, +91 831 908 1061",
             email: "support@sigmaonecapital.in",
             hours: "Mon-Sat 09:00 AM to 05:00 PM"
         }

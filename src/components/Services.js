@@ -75,6 +75,42 @@ const planData = {
       },
     ],
   },
+  "Sigma Elite": {
+    title: "Elite Wealth Advisory Plan",
+    options: [
+      {
+        type: "Monthly",
+        price: "₹12,500",
+        features: [
+          "5-6 premium research ideas/month",
+          "Advanced market analysis & macro insights",
+          "Priority 1-on-1 WhatsApp + Email support",
+          "Comprehensive asset allocation strategy"
+        ],
+      },
+      {
+        type: "Quarterly",
+        price: "₹35,000",
+        popular: true,
+        features: [
+          "All Monthly benefits included",
+          "Priority direct portfolio-rebalancing alerts",
+          "Quarterly strategy consultation calls",
+          "Exclusive institutional sector research"
+        ],
+      },
+      {
+        type: "Annual",
+        price: "₹1,50,000",
+        features: [
+          "All Quarterly benefits included",
+          "Dedicated senior investment analyst support",
+          "End-to-end bespoke financial strategy",
+          "Unlimited 1-on-1 strategy meetings"
+        ],
+      },
+    ],
+  },
 };
 
 const Services = () => {

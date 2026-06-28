@@ -18,8 +18,8 @@ const Footer = () => {
                             SMARTER MOVES • STRONGER OUTCOMES
                         </p>
                         <div className="text-xs text-blue-100 space-y-2 pt-2">
-                            <p className="font-semibold text-white">SEBI Registration Number:</p>
-                            <p className="bg-blue-950 px-2.5 py-1 rounded w-fit font-bold font-mono tracking-wide">INH000027812</p>
+                            <p className="text-sm font-bold text-white mb-1">SEBI Registration Number:</p>
+                            <p className="text-sm bg-blue-950 px-3 py-1.5 rounded-lg w-fit font-extrabold font-mono tracking-wider text-blue-300">INH000027812</p>
                             <p className="font-semibold text-white mt-4">Office Address:</p>
                             <p className="leading-relaxed">
                                 903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010
@@ -87,7 +87,7 @@ const Footer = () => {
                     <div className="space-y-4">
                         <h4 className="font-bold text-white text-lg border-b border-blue-800 pb-2">Get In Touch</h4>
                         <div className="text-xs space-y-3 text-blue-100">
-                            <p><strong>Contact helpline:</strong> +91 98755-90601</p>
+                            <p><strong>Contact helplines:</strong> +91 98755-90601, +91 831 908 1061</p>
                             <p><strong>Support email:</strong> <a href="mailto:support@sigmaonecapital.in" className="hover:text-white underline">support@sigmaonecapital.in</a></p>
                             <p><strong>Working hours:</strong> Mon-Sat (09:00 AM - 05:00 PM)</p>
                         </div>

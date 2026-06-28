@@ -90,7 +90,7 @@ const PrivacyPolicy = () => {
                         <hr className="border-gray-150 my-6" />
 
                         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 text-xs text-gray-500">
-                            If you have questions or concerns regarding our privacy practices, please contact us at <a href="mailto:support@sigmaonecapital.in" className="text-blue-600 hover:underline">support@sigmaonecapital.in</a> or call our support desk at +91 98755-90601.
+                            If you have questions or concerns regarding our privacy practices, please contact us at <a href="mailto:support@sigmaonecapital.in" className="text-blue-600 hover:underline">support@sigmaonecapital.in</a> or call our support desk at +91 98755-90601 or +91 831 908 1061.
                         </div>
                     </div>
                 </div>

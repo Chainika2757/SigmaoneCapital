@@ -25,13 +25,13 @@ const Disclosure = () => {
                     {/* Content */}
                     <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-150 text-gray-700 leading-relaxed space-y-6 text-justify" data-aos="fade-up" data-aos-delay="100">
                         <h3 className="font-extrabold text-blue-900 text-lg border-b border-gray-100 pb-2">
-                            SEBI Registered Research Analyst Registration No. INH000027812
+                            SEBI Registered Research Analyst SEBI Registration Number: INH000027812
                         </h3>
 
                         <div className="space-y-4">
                             <h4 className="font-bold text-gray-900">1. Research Analyst Information:</h4>
                             <p>
-                                Chakrapaani Mishra Proprietor Sigmaone Capital, is a SEBI-registered Research Analyst (Registration No. INH000027812) under the SEBI (Research Analysts) Regulations, 2014.
+                                Chakrapaani Mishra Proprietor Sigmaone Capital, is a SEBI-registered Research Analyst (SEBI Registration Number: INH000027812) under the SEBI (Research Analysts) Regulations, 2014.
                             </p>
                         </div>
 
@@ -100,7 +100,7 @@ const Disclosure = () => {
                             <p className="font-bold text-gray-800">Office Location & Support Details:</p>
                             <p><strong>Registered Office:</strong> 903, A-1 Sector, Scheme-136, Niranjanpur, Indore, Madhya Pradesh - 452010</p>
                             <p><strong>Support Email:</strong> <a href="mailto:support@sigmaonecapital.in" className="text-blue-600 hover:underline">support@sigmaonecapital.in</a></p>
-                            <p><strong>Contact Helpline:</strong> +91 98755-90601</p>
+                            <p><strong>Contact Helplines:</strong> +91 98755-90601, +91 831 908 1061</p>
                         </div>
 
                         <div className="bg-blue-900 text-white p-6 rounded-2xl space-y-3">

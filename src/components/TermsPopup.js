@@ -80,7 +80,7 @@ const TermsPopup = () => {
                                     Never make payments for Demat account opening, handling, or any investment-related purposes unless specified on our website.
                                 </li>
                                 <li>
-                                    We do not offer services that are not mentioned on our website. If you have any concerns or doubts regarding fraudulent activities, please refer to our terms and conditions or contact us directly at <span className="font-bold text-blue-900">+91 98755-90601</span> or via email: <span className="font-bold text-blue-900">support@sigmaonecapital.in</span>.
+                                    We do not offer services that are not mentioned on our website. If you have any concerns or doubts regarding fraudulent activities, please refer to our terms and conditions or contact us directly at <span className="font-bold text-blue-900">+91 98755-90601 / +91 831 908 1061</span> or via email: <span className="font-bold text-blue-900">support@sigmaonecapital.in</span>.
                                 </li>
                             </ul>
 

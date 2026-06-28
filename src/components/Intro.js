@@ -104,11 +104,41 @@ const Intro = () => {
         {/* Company Registration and Profile Banner */}
         <div className="bg-gray-50 py-16 px-4 border-b border-gray-200" id="about">
             <div className="max-w-6xl mx-auto" data-aos="fade-up">
-                <div className="text-center mb-10">
+                
+                {/* About Narrative Section */}
+                <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-blue-900 uppercase tracking-wider mb-3">
+                        About SigmaOne Capital
+                    </h2>
+                    <div className="w-24 border-b-4 border-blue-900 rounded-full mx-auto mb-8"></div>
+                    
+                    <div className="max-w-4xl mx-auto text-left text-gray-700 space-y-6 text-sm md:text-base leading-relaxed mb-12">
+                        <p>
+                            SigmaOne Capital is an independent research and advisory firm built on a singular belief — exceptional outcomes are achieved through exceptional research.
+                        </p>
+                        <p>
+                            In a world flooded with opinions, headlines, and market noise, we provide clarity through disciplined analysis, strategic thinking, and a relentless pursuit of excellence.
+                        </p>
+                        <p>
+                            Our philosophy integrates fundamental research, technical intelligence, macroeconomic analysis, and rigorous risk management to uncover opportunities across financial markets. Every insight is guided by a structured framework designed to help investors and traders make informed, confident, and objective decisions.
+                        </p>
+                        <p className="font-extrabold text-blue-900 text-center italic text-lg md:text-xl py-2">
+                            "We believe that capital deserves stewardship, not speculation."
+                        </p>
+                        <p>
+                            Driven by integrity, precision, and an unwavering commitment to quality, SigmaOne Capital seeks to empower clients with institutional-grade research while maintaining the highest standards of professionalism and transparency.
+                        </p>
+                        <p className="font-bold text-gray-900 text-center text-md md:text-lg">
+                            Because successful investing is not about predicting the future—it's about preparing for it.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="text-center mb-10 pt-8 border-t border-gray-200">
+                    <h2 className="text-2xl md:text-3xl font-extrabold text-blue-900 uppercase tracking-wider mb-3">
                         Corporate Profile
                     </h2>
-                    <div className="w-24 border-b-4 border-blue-900 rounded-full mx-auto"></div>
+                    <div className="w-20 border-b-2 border-blue-900 rounded-full mx-auto"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -136,11 +166,12 @@ const Intro = () => {
                             </svg>
                         </div>
                         <div>
-                            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Registration No. (CIN)</h4>
+                            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">SEBI Registration Number</h4>
                             <p className="text-md font-bold text-gray-800 tracking-wide">U67190MP2023PTC065432</p>
                             <p className="text-xs text-gray-500 font-medium mt-1">Incorporated under Ministry of Corporate Affairs</p>
                         </div>
                     </div>
+
 
                     {/* Registered Address Card */}
                     <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition duration-300 flex items-start gap-4 md:col-span-2 lg:col-span-1">
@@ -213,13 +244,13 @@ const Intro = () => {
                             </p>
                             <ul className="space-y-1.5 text-xs md:text-sm text-gray-200 pl-2">
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span><strong>A diverse workforce</strong> is indispensable to our success, helping us solve the toughest problems.</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span><strong>An inclusive culture</strong> enables us to draw on unique experiences from across the firm.</span>
@@ -238,13 +269,13 @@ const Intro = () => {
                             </p>
                             <ul className="space-y-1.5 text-xs md:text-sm text-gray-200 pl-2">
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span>We have <strong>continually reinvented</strong> our industry to help people achieve their goals.</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span>We are <strong>lifelong students</strong> of markets, technology, and the world.</span>
@@ -263,13 +294,13 @@ const Intro = () => {
                             </p>
                             <ul className="space-y-1.5 text-xs md:text-sm text-gray-200 pl-2">
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span>In everything we do, we are emotionally invested in our clients' futures.</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span>We hold ourselves and each other to the highest standards of excellence.</span>
@@ -288,13 +319,13 @@ const Intro = () => {
                             </p>
                             <ul className="space-y-1.5 text-xs md:text-sm text-gray-200 pl-2">
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span>We advocate for sustainable business practices that drive long-term value.</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="w-4 h-4 text-sky-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                                     </svg>
                                     <span>We constantly innovate to serve more people and help them achieve financial well-being.</span>
