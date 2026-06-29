@@ -167,8 +167,7 @@ const Intro = () => {
                         </div>
                         <div>
                             <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">SEBI Registration Number</h4>
-                            <p className="text-md font-bold text-gray-800 tracking-wide">U67190MP2023PTC065432</p>
-                            <p className="text-xs text-gray-500 font-medium mt-1">Incorporated under Ministry of Corporate Affairs</p>
+                            <p className="text-md font-bold text-gray-800 tracking-wide">INH000027812</p>
                         </div>
                     </div>
 
