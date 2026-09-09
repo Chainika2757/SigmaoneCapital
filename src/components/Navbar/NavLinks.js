@@ -1,5 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
 const NavLinks = ({ linkClass = "text-gray-500 hover:text-blue-900", onClick }) => {
     const location = useLocation();
