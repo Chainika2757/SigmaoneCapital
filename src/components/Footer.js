@@ -71,9 +71,6 @@ const Footer = () => {
                                 <Link to="/legal/investor-charter" className="hover:text-white hover:pl-1 transition-all duration-200">Investor Charter</Link>
                             </li>
                             <li>
-                                <Link to="/legal/investor-charges" className="hover:text-white hover:pl-1 transition-all duration-200">Investor Charges</Link>
-                            </li>
-                            <li>
                                 <Link to="/legal/privacy-policy" className="hover:text-white hover:pl-1 transition-all duration-200">Privacy Policy</Link>
                             </li>
                             <li>
