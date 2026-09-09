@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PaymentButton from './PaymentButton';
 
 const PLANS = {
   start: {
@@ -165,237 +166,162 @@ function fmtINR(n) {
 
 const Services = () => {
   const [activePlanKey, setActivePlanKey] = useState('start');
-  const [loadingBtn, setLoadingBtn] = useState(null);
-  const [indicatorStyle, setIndicatorStyle] = useState({});
-  const tabRefs = useRef({});
   const navigate = useNavigate();
 
   const plan = PLANS[activePlanKey];
 
-  const updateTabIndicator = (key) => {
-    const targetTab = tabRefs.current[key];
-    if (targetTab) {
-      setIndicatorStyle({
-        width: `${targetTab.offsetWidth}px`,
-        transform: `translateX(${targetTab.offsetLeft - 6}px)`
-      });
-    }
-  };
-
-  useEffect(() => {
-    updateTabIndicator(activePlanKey);
-  }, [activePlanKey]);
-
-  useEffect(() => {
-    const handleResize = () => updateTabIndicator(activePlanKey);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [activePlanKey]);
-
-  const handlePayClick = (cycleKey, e) => {
-    if (loadingBtn) return;
-
-    // Create ripple effect
-    const btn = e.currentTarget;
-    const rect = btn.getBoundingClientRect();
-    const ripple = document.createElement('span');
-    ripple.className = 'absolute w-2 h-2 rounded-full bg-white/50 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none animate-ping';
-    ripple.style.left = `${e.clientX - rect.left}px`;
-    ripple.style.top = `${e.clientY - rect.top}px`;
-    btn.appendChild(ripple);
-
-    setTimeout(() => ripple.remove(), 600);
-
-    setLoadingBtn(cycleKey);
-
-    setTimeout(() => {
-      setLoadingBtn(null);
-      navigate('/payment');
-    }, 1200);
-  };
-
   return (
-    <div id="services" className="bg-slate-50 py-16 md:py-24 text-slate-900 font-sans relative z-0">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="services" className="bg-gray-50 py-16 md:py-24 relative z-0 font-sans">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
-          <span className="inline-flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-wider text-teal-600 bg-teal-50 border border-teal-200 px-3.5 py-1.5 rounded-full mb-5">
-            <svg className="w-3.5 h-3.5 text-teal-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z" />
-              <path d="m9 12 2 2 4-4" />
-            </svg>
+        {/* Heading Section */}
+        <div className="text-center mb-12" data-aos="fade-up">
+          <p className="text-xs font-bold font-mono tracking-widest text-blue-900 uppercase bg-blue-50 border border-blue-200 px-4 py-1.5 rounded-full inline-block mb-3">
             SEBI Registered Research Analyst · INH000027812
-          </span>
-          <h2 className="font-extrabold text-3xl sm:text-4xl text-slate-950 tracking-tight leading-tight mb-3">
-            Research plans built for <span className="text-teal-600">how you trade</span>
+          </p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-900 uppercase tracking-wider mb-4">
+            Our Research Packages
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
+          <div className="flex justify-center mb-6">
+            <div className="w-24 border-b-4 border-blue-900 rounded-full"></div>
+          </div>
+          <p className="text-lg md:text-xl font-medium text-gray-600 max-w-3xl mx-auto">
             Equity, index and stock F&amp;O research with full entry, target and stop-loss parameters — choose the cadence and depth that matches your trading style.
           </p>
         </div>
 
-        {/* Plan Switcher */}
-        <div className="flex justify-center mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div className="relative inline-flex bg-slate-900 p-1.5 rounded-full gap-1" role="tablist" aria-label="Choose a plan">
-            <div 
-              className="absolute top-1.5 left-1.5 h-[calc(100%-12px)] rounded-full bg-gradient-to-r from-teal-400 to-teal-500 transition-all duration-350 ease-out z-0 shadow-sm"
-              style={indicatorStyle}
-            />
-            {Object.keys(PLANS).map((key) => {
-              const isActive = activePlanKey === key;
+        {/* ---------- Tab Buttons ---------- */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
+          {Object.keys(PLANS).map((key) => {
+            const isActive = activePlanKey === key;
+            return (
+              <button
+                key={key}
+                onClick={() => setActivePlanKey(key)}
+                className={`px-8 py-3 text-lg font-bold rounded-full transition-all duration-300 shadow-md ${
+                  isActive
+                    ? "bg-blue-900 text-white shadow-blue-900/40 transform scale-105"
+                    : "bg-white text-blue-900 hover:bg-gray-100 hover:shadow-lg border border-gray-200"
+                }`}
+              >
+                {PLANS[key].label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ---------- Dynamic Plan Content ---------- */}
+        <div className="animate-fade-in-up">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-extrabold text-gray-800 tracking-tight">
+              {plan.title}
+            </h3>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto font-medium mt-2">
+              {plan.desc}
+            </p>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+            {['monthly', 'quarterly', 'annual'].map((cycleKey) => {
+              const c = plan.cycles[cycleKey];
+
+              // Calculate discount percentage vs monthly
+              let savePct = 0;
+              if (c.monthsEquivalent) {
+                const fullPrice = plan.cycles.monthly.price * c.monthsEquivalent;
+                savePct = Math.round((1 - c.price / fullPrice) * 100);
+              }
+
               return (
-                <button
-                  key={key}
-                  ref={(el) => (tabRefs.current[key] = el)}
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActivePlanKey(key)}
-                  className={`relative z-10 font-semibold text-xs sm:text-sm px-6 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap ${
-                    isActive ? 'text-slate-950 font-bold' : 'text-slate-300 hover:text-white opacity-70 hover:opacity-100'
+                <div
+                  key={cycleKey}
+                  className={`bg-white border rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                    c.popular
+                      ? "border-blue-950 shadow-xl ring-2 ring-blue-900 ring-offset-2 scale-105 z-10 md:-translate-y-2"
+                      : "border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1"
                   }`}
                 >
-                  {PLANS[key].label}
-                </button>
+                  {/* Popular Badge */}
+                  {c.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-orange-500 text-white px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-md">
+                        Most Subscribed
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Card Top Section: Title & Price */}
+                  <div>
+                    <div className="text-center mb-6">
+                      <p className="font-extrabold text-lg text-gray-500 uppercase tracking-widest mb-2">
+                        {c.cycleLabel}
+                      </p>
+                      <div className="text-4xl font-black text-blue-900 flex items-baseline justify-center">
+                        {fmtINR(c.price)}
+                        <span className="text-sm font-semibold text-gray-500 ml-1">
+                          {c.period}
+                        </span>
+                      </div>
+
+                      {/* Save Pill */}
+                      <div className="h-7 mt-3">
+                        {savePct > 0 ? (
+                          <span className="inline-block text-xs font-extrabold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-full">
+                            Save {savePct}% vs monthly
+                          </span>
+                        ) : null}
+                      </div>
+
+                      <div className="w-12 border-b-2 border-gray-100 mx-auto mt-3"></div>
+                    </div>
+
+                    {/* Inherits Info Box */}
+                    {c.inherits ? (
+                      <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-blue-900 bg-blue-50 border border-dashed border-blue-200 px-3 py-2 rounded-xl mb-6">
+                        <svg className="w-4 h-4 text-blue-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                        </svg>
+                        <span>Everything in {c.inherits}, plus:</span>
+                      </div>
+                    ) : (
+                      <div className="mb-2"></div>
+                    )}
+
+                    {/* Features List */}
+                    <ul className="space-y-4 mb-8 text-sm text-left">
+                      {c.features.map((feature, fIdx) => (
+                        <li key={fIdx} className="flex items-start">
+                          <svg className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className="font-medium text-gray-700 leading-snug" dangerouslySetInnerHTML={{ __html: feature }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Signature Payment Button */}
+                  <div className="mt-auto pt-4">
+                    <PaymentButton onClick={() => navigate('/payment')} />
+                  </div>
+                </div>
               );
             })}
           </div>
         </div>
 
-        {/* Plan Meta */}
-        <div className="text-center mb-10">
-          <h3 className="font-extrabold text-2xl text-slate-950 mb-2">
-            {plan.title}
-          </h3>
-          <p className="text-sm text-slate-500 max-w-lg mx-auto">
-            {plan.desc}
-          </p>
-        </div>
-
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-6 items-stretch mb-14">
-          {['monthly', 'quarterly', 'annual'].map((cycleKey) => {
-            const c = plan.cycles[cycleKey];
-            const isFeatured = c.popular;
-            const isLoading = loadingBtn === cycleKey;
-
-            // Calculate discount percentage
-            let savePct = 0;
-            if (c.monthsEquivalent) {
-              const fullPrice = plan.cycles.monthly.price * c.monthsEquivalent;
-              savePct = Math.round((1 - c.price / fullPrice) * 100);
-            }
-
-            return (
-              <div
-                key={cycleKey}
-                className={`bg-white rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 relative border ${
-                  isFeatured
-                    ? 'border-teal-400 shadow-xl shadow-teal-500/10 scale-105 z-10 md:-translate-y-1'
-                    : 'border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-1'
-                }`}
-              >
-                {/* Popular Badge */}
-                {c.popular && (
-                  <span className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-slate-950 text-teal-400 text-[11px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-md whitespace-nowrap">
-                    Most Subscribed
-                  </span>
-                )}
-
-                <div>
-                  {/* Cycle Header */}
-                  <p className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-                    {c.cycleLabel}
-                  </p>
-
-                  {/* Price */}
-                  <div className="flex items-baseline gap-1.5 mb-2">
-                    <span className="font-extrabold text-3xl sm:text-4xl text-slate-950 tracking-tight">
-                      {fmtINR(c.price)}
-                    </span>
-                    <span className="text-xs text-slate-500 font-medium">
-                      {c.period}
-                    </span>
-                  </div>
-
-                  {/* Save pill */}
-                  <div className="h-7 mb-4">
-                    {savePct > 0 ? (
-                      <span className="inline-block text-[11.5px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-md">
-                        Save {savePct}% vs monthly
-                      </span>
-                    ) : null}
-                  </div>
-
-                  {/* Inherit info */}
-                  {c.inherits ? (
-                    <div className="flex items-center gap-2 text-xs font-semibold text-blue-900 bg-slate-50 border border-dashed border-slate-200 p-2.5 rounded-lg mb-4">
-                      <svg className="w-3.5 h-3.5 text-teal-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="12" y1="19" x2="12" y2="5" />
-                        <polyline points="5 12 12 5 19 12" />
-                      </svg>
-                      <span>Everything in {c.inherits}, plus:</span>
-                    </div>
-                  ) : (
-                    <div className="border-b border-slate-200 mb-4" />
-                  )}
-
-                  {/* Features List */}
-                  <ul className="space-y-3 mb-6 text-xs text-slate-600">
-                    {c.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2.5 leading-snug">
-                        <svg className="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
-                        <span dangerouslySetInnerHTML={{ __html: feature }} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Pay Now Button */}
-                <button
-                  type="button"
-                  onClick={(e) => handlePayClick(cycleKey, e)}
-                  disabled={isLoading}
-                  className={`relative overflow-hidden w-full font-semibold text-sm py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-200 shadow-md ${
-                    isFeatured
-                      ? 'bg-gradient-to-r from-teal-400 to-teal-500 hover:brightness-105 text-slate-950 font-bold'
-                      : 'bg-slate-950 hover:bg-slate-800 text-white'
-                  }`}
-                >
-                  {isLoading ? (
-                    <>
-                      <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-                      <span>Redirecting to payment…</span>
-                    </>
-                  ) : (
-                    <>
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="5" width="20" height="14" rx="2.5" />
-                        <line x1="2" y1="10" x2="22" y2="10" />
-                        <line x1="6" y1="15" x2="10" y2="15" />
-                      </svg>
-                      <span>Pay Now</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Compliance Section */}
-        <div className="pt-7 border-t border-slate-200 text-[11.5px] text-slate-500 leading-relaxed space-y-2 max-w-4xl mx-auto">
+        {/* Compliance Box */}
+        <div className="mt-16 p-6 bg-white border border-gray-200 rounded-2xl text-xs text-gray-600 space-y-2 text-justify shadow-sm max-w-6xl mx-auto">
           <p>
-            <strong className="text-slate-700">Disclaimer:</strong> Registration granted by SEBI and certification from NISM do not guarantee the performance of the intermediary or provide any assurance of returns to investors. Investment in securities markets is subject to market risk; please read all related documents carefully before investing. Past performance of recommendations is not indicative of future returns. SigmaOne Capital does not guarantee any returns and is not liable for any losses arising from the use of this research.
+            <strong className="text-gray-900">Disclaimer:</strong> Registration granted by SEBI and certification from NISM do not guarantee the performance of the intermediary or provide any assurance of returns to investors. Investment in securities markets is subject to market risk; please read all related documents carefully before investing. Past performance of recommendations is not indicative of future returns. SigmaOne Capital does not guarantee any returns and is not liable for any losses arising from the use of this research.
           </p>
           <p>
-            <strong className="text-slate-700">SEBI Reg. No.:</strong> INH000027812 · Clients are requested to review the SEBI-mandated Do's and Don'ts for dealing with Research Analysts before subscribing. For grievances, use SEBI SCORES at scores.gov.in.
+            <strong className="text-gray-900">SEBI Reg. No.:</strong> INH000027812 · Clients are requested to review the SEBI-mandated Do's and Don'ts for dealing with Research Analysts before subscribing. For grievances, use SEBI SCORES at scores.gov.in.
           </p>
         </div>
 
-      </div>
+      </section>
     </div>
   );
 };
