@@ -15,6 +15,8 @@ import Home from './pages/Home';
 import Payment from './pages/Payment';
 
 // New core pages
+import MissionVision from './pages/MissionVision';
+import WhyChooseUs from './pages/WhyChooseUs';
 import TradingSolutions from './pages/TradingSolutions';
 import ServicesPage from './pages/ServicesPage';
 import KYC from './pages/KYC';
@@ -63,6 +65,8 @@ function App() {
             <Route path="/payment" element={<Payment />} />
             
             {/* Core pages */}
+            <Route path="/mission-vision" element={<MissionVision />} />
+            <Route path="/why-choose-us" element={<WhyChooseUs />} />
             <Route path="/trading-solutions" element={<TradingSolutions />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/kyc" element={<KYC />} />

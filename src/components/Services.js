@@ -4,7 +4,7 @@ import PaymentButton from "./PaymentButton";
 
 const planData = {
   "Sigma Start": {
-    title: "Starter wealth Advisory Plan",
+    title: "Starter Research Plan",
     options: [
       {
         type: "Monthly",
@@ -13,7 +13,7 @@ const planData = {
           "3-4 equity research ideas/month",
           "Weekly market insights & updates",
           "Email support for query resolution",
-          "Standard portfolio-tracking access"
+          "Standard market research access"
         ],
       },
       {
@@ -23,7 +23,7 @@ const planData = {
         features: [
           "All Monthly benefits included",
           "WhatsApp + Email support",
-          "Quarterly portfolio overview",
+          "Quarterly market overview",
           "Dedicated query response (24-48 hrs)"
         ],
       },
@@ -32,7 +32,7 @@ const planData = {
         price: "₹63,000",
         features: [
           "All Quarterly benefits included",
-          "1-on-1 wealth consultation call",
+          "1-on-1 research consultation call",
           "Premium stock & sector insights",
           "Priority support & direct access"
         ],
@@ -40,7 +40,7 @@ const planData = {
     ],
   },
   "Sigma Edge": {
-    title: "Advanced Wealth advisory Plan",
+    title: "Advanced Research Plan",
     options: [
       {
         type: "Monthly",
@@ -49,7 +49,7 @@ const planData = {
           "4-5 high-conviction ideas/month",
           "Weekly updates & macro insights",
           "Priority WhatsApp + Email support",
-          "Basic asset allocation suggestions"
+          "Market structure & Greeks analysis"
         ],
       },
       {
@@ -58,7 +58,7 @@ const planData = {
         popular: true,
         features: [
           "All Monthly benefits included",
-          "Portfolio-rebalancing support",
+          "Risk management & sizing guidance",
           "Quarterly strategy discussion call",
           "Detailed sector research reports"
         ],
@@ -69,14 +69,14 @@ const planData = {
         features: [
           "All Quarterly benefits included",
           "Dedicated investment analyst support",
-          "End-to-end custom financial strategy",
+          "End-to-end custom market research",
           "Priority 1-on-1 strategy calls"
         ],
       },
     ],
   },
   "Sigma Elite": {
-    title: "Elite Wealth Advisory Plan",
+    title: "Elite Research Plan",
     options: [
       {
         type: "Monthly",
@@ -85,7 +85,7 @@ const planData = {
           "5-6 premium research ideas/month",
           "Advanced market analysis & macro insights",
           "Priority 1-on-1 WhatsApp + Email support",
-          "Comprehensive asset allocation strategy"
+          "Comprehensive derivative & IV analysis"
         ],
       },
       {
@@ -94,7 +94,7 @@ const planData = {
         popular: true,
         features: [
           "All Monthly benefits included",
-          "Priority direct portfolio-rebalancing alerts",
+          "Priority research alert notifications",
           "Quarterly strategy consultation calls",
           "Exclusive institutional sector research"
         ],
@@ -104,8 +104,8 @@ const planData = {
         price: "₹1,50,000",
         features: [
           "All Quarterly benefits included",
-          "Dedicated senior investment analyst support",
-          "End-to-end bespoke financial strategy",
+          "Dedicated senior research analyst support",
+          "Bespoke market research reports",
           "Unlimited 1-on-1 strategy meetings"
         ],
       },
@@ -124,13 +124,13 @@ const Services = () => {
         {/* Heading Section */}
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl md:text-4xl font-extrabold text-blue-900 uppercase tracking-wider mb-4">
-            Our Packages
+            Our Research Packages
           </h2>
           <div className="flex justify-center mb-6">
             <div className="w-24 border-b-4 border-blue-900 rounded-full"></div>
           </div>
           <p className="text-xl md:text-2xl font-medium text-gray-600 max-w-3xl mx-auto">
-            We are deeply committed to the growth and success of our clients. Select a tier that fits your wealth creation goals.
+            Disciplined research built on structure. Select a tier that fits your market research needs.
           </p>
         </div>
 

@@ -6,7 +6,7 @@ import { useDocTitle } from '../components/CustomHook';
 import { Link } from 'react-router-dom';
 
 const ServicesPage = () => {
-    useDocTitle("Our Wealth advisory Services | SigmaOne Capital");
+    useDocTitle("Research Services | SigmaOne Capital");
 
     const benefits = [
         {
@@ -47,11 +47,11 @@ const ServicesPage = () => {
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="fade-up">
                     <h1 className="text-4xl md:text-5xl font-black uppercase tracking-widest mb-4">
-                        Advisory Services & Packages
+                        Research Services &amp; Packages
                     </h1>
                     <div className="w-24 border-b-4 border-blue-400 mx-auto rounded-full mb-6"></div>
                     <p className="text-lg md:text-xl text-blue-200 max-w-3xl mx-auto font-medium leading-relaxed">
-                        Explore our SEBI-registered equity research and investment plans tailored to amplify your wealth creation.
+                        Explore our SEBI-registered equity research and investment plans tailored for disciplined trading.
                     </p>
                 </div>
             </div>
@@ -64,9 +64,9 @@ const ServicesPage = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16" data-aos="fade-up">
                         <h2 className="text-3xl font-extrabold text-blue-900 uppercase tracking-wider mb-3">
-                            Advisory Features & Benefits
+                            Research Features &amp; Benefits
                         </h2>
-                        <p className="text-gray-500 font-medium">Why investors trust Sigmaone Capital with their wealth advisory</p>
+                        <p className="text-gray-500 font-medium">Why investors trust Sigmaone Capital with their market research</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -87,17 +87,17 @@ const ServicesPage = () => {
             <div className="bg-gray-50 py-16 text-center border-t border-b border-gray-200">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6" data-aos="zoom-in">
                     <h3 className="text-3xl font-black text-blue-900 uppercase">
-                        Take Control of Your Wealth Today
+                        Access Structured Market Research
                     </h3>
                     <p className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
-                        Verify your KYC details to access our premium packages and secure payment desk.
+                        Verify your KYC details to access our premium research packages and secure payment desk.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 pt-4">
                         <Link to="/kyc" className="bg-blue-900 hover:bg-blue-800 text-white font-extrabold px-8 py-3 rounded-2xl shadow transition duration-300 transform hover:scale-105">
                             Start KYC Verification
                         </Link>
                         <Link to="/contact" className="bg-white hover:bg-gray-100 text-blue-900 font-extrabold px-8 py-3 rounded-2xl shadow border border-gray-200 transition duration-300 transform hover:scale-105">
-                            Speak to an Advisor
+                            Contact Research Desk
                         </Link>
                     </div>
                 </div>

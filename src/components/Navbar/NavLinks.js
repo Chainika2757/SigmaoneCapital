@@ -22,26 +22,26 @@ const NavLinks = ({ linkClass = "text-gray-500 hover:text-blue-900", onClick }) 
 
     return (
         <>
-            <HashLink 
-                className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/', '#hero')}`} 
-                smooth to="/#hero" 
+            <Link 
+                className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/')}`} 
+                to="/" 
                 onClick={onClick}
             >
                 Home
-            </HashLink>
-            <HashLink 
-                className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/', '#about')}`} 
-                smooth to="/#about" 
-                onClick={onClick}
-            >
-                About
-            </HashLink>
+            </Link>
             <Link 
-                className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/services')}`} 
-                to="/services" 
+                className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/mission-vision')}`} 
+                to="/mission-vision" 
                 onClick={onClick}
             >
-                Services
+                Mission &amp; Vision
+            </Link>
+            <Link 
+                className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/why-choose-us')}`} 
+                to="/why-choose-us" 
+                onClick={onClick}
+            >
+                Why Choose Us
             </Link>
             <Link 
                 className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/trading-solutions')}`} 
@@ -49,6 +49,13 @@ const NavLinks = ({ linkClass = "text-gray-500 hover:text-blue-900", onClick }) 
                 onClick={onClick}
             >
                 Trading Solutions
+            </Link>
+            <Link 
+                className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/services')}`} 
+                to="/services" 
+                onClick={onClick}
+            >
+                Research Plans
             </Link>
             <Link 
                 className={`px-3 xl:px-4 text-xs xl:text-sm font-black uppercase tracking-wider transition-all duration-300 ${linkClass} ${getActiveStyle('/kyc')}`} 

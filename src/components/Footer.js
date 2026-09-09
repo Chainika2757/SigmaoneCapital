@@ -14,8 +14,8 @@ const Footer = () => {
                         <Link to="/" className="inline-block border-b-2 border-white pb-1 hover:opacity-90 transition-opacity">
                             <h3 className="font-extrabold text-2xl tracking-wider">Sigmaone Capital</h3>
                         </Link>
-                        <p className="text-xs text-blue-200 leading-snug">
-                            SMARTER MOVES • STRONGER OUTCOMES
+                        <p className="text-xs text-blue-200 leading-snug tracking-wider">
+                            SMARTER MOVES • SHARPER RESEARCH
                         </p>
                         <div className="text-xs text-blue-100 space-y-2 pt-2">
                             <p className="text-sm font-bold text-white mb-1">SEBI Registration Number:</p>
@@ -32,10 +32,13 @@ const Footer = () => {
                         <h4 className="font-bold text-white text-lg mb-4 border-b border-blue-800 pb-2">Quick Links</h4>
                         <ul className="text-xs space-y-3 text-blue-200">
                             <li>
-                                <HashLink smooth to="/#hero" className="hover:text-white hover:pl-1 transition-all duration-200">Home</HashLink>
+                                <Link to="/" className="hover:text-white hover:pl-1 transition-all duration-200">Home</Link>
                             </li>
                             <li>
-                                <HashLink smooth to="/#about" className="hover:text-white hover:pl-1 transition-all duration-200">About Us</HashLink>
+                                <Link to="/mission-vision" className="hover:text-white hover:pl-1 transition-all duration-200">Mission &amp; Vision</Link>
+                            </li>
+                            <li>
+                                <Link to="/why-choose-us" className="hover:text-white hover:pl-1 transition-all duration-200">Why Choose Us</Link>
                             </li>
                             <li>
                                 <Link to="/services" className="hover:text-white hover:pl-1 transition-all duration-200">Our Services</Link>
@@ -78,7 +81,7 @@ const Footer = () => {
                                 <Link to="/legal/refund-policy" className="hover:text-white hover:pl-1 transition-all duration-200">Refund Policy</Link>
                             </li>
                             <li>
-                                <Link to="/legal/terms-conditions" className="hover:text-white hover:pl-1 transition-all duration-200">Terms & Conditions</Link>
+                                <Link to="/legal/terms-conditions" className="hover:text-white hover:pl-1 transition-all duration-200">Terms &amp; Conditions</Link>
                             </li>
                         </ul>
                     </div>
@@ -133,13 +136,13 @@ const Footer = () => {
                     <div className="p-4 bg-blue-950/50 rounded-2xl border border-blue-800/40 space-y-2">
                         <p className="font-bold text-white uppercase tracking-wider">Regulatory Compliance Disclosures:</p>
                         <p>
-                            <strong>Standard Warning:</strong> "Registration granted by SEBI, enlistment with RAASB and certification from NISM is in no way guarantee performance of the intermediary or provide any assurance of returns to investors."
+                            <strong>Standard Warning:</strong> "Registration granted by SEBI, enlistment with RAASB and certification from NISM is in no way a guarantee of the performance of the intermediary or a provision of any assurance of returns to investors."
                         </p>
                         <p>
                             <strong>Market Warning:</strong> "Investments in securities market are subject to market risks. Read all the related documents carefully before investing."
                         </p>
                         <p>
-                            Advisory service is restricted to research recommendations on selected equities, indices, and derivatives. We do not provide asset management or portfolio-guaranteed return services. All fees are paid strictly towards advisory packages.
+                            Our research service is restricted to research recommendations on selected equities, indices, and derivatives. We do not provide asset management or portfolio-guaranteed return services. All fees are paid strictly towards research packages.
                         </p>
                     </div>
 

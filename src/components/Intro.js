@@ -114,7 +114,7 @@ const Intro = () => {
                     
                     <div className="max-w-4xl mx-auto text-left text-gray-700 space-y-6 text-sm md:text-base leading-relaxed mb-12">
                         <p>
-                            SigmaOne Capital is an independent research and advisory firm built on a singular belief — exceptional outcomes are achieved through exceptional research.
+                            SigmaOne Capital is an independent research analyst firm built on a singular belief — exceptional outcomes are achieved through exceptional research.
                         </p>
                         <p>
                             In a world flooded with opinions, headlines, and market noise, we provide clarity through disciplined analysis, strategic thinking, and a relentless pursuit of excellence.
@@ -126,10 +126,10 @@ const Intro = () => {
                             "We believe that capital deserves stewardship, not speculation."
                         </p>
                         <p>
-                            Driven by integrity, precision, and an unwavering commitment to quality, SigmaOne Capital seeks to empower clients with institutional-grade research while maintaining the highest standards of professionalism and transparency.
+                            Driven by integrity, precision, and an unwavering commitment to quality, SigmaOne Capital seeks to empower clients with structured, data-driven research while maintaining the highest standards of professionalism and transparency.
                         </p>
                         <p className="font-bold text-gray-900 text-center text-md md:text-lg">
-                            Because successful investing is not about predicting the future—it's about preparing for it.
+                            Because successful investing is not about predicting the future — it's about preparing for it.
                         </p>
                     </div>
                 </div>
